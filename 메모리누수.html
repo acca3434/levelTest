@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="one">One</div>
+    <div id="two">Two</div>
+    <script>
+        /*
+            문제 1 : 메모리누수
+
+            다음 코드는 DOM 메모리 누수를 보여준다. one클릭시 two가 제거되지만 one을 다시한번 클릭하더라도 여전히 제거된 two를 참조하려한다.
+            이러한 현상이 발생되는 이유(서술)와 해결코드를 작성할 것.
+        */
+        const one = document.getElementById("one");
+        const two = document.getElementById("two");
+
+        // one.addEventListener("click",function(){
+
+        //     two.remove();
+        //     console.log(two);
+        // })
+        /*
+        DOM을 직접적으로 HTML상에서 직접 내용을 작성하여 DOM을 컨트롤할 수 있지만
+        DOM을 외부에서 직접 DOM을 변수에 할당하고 그 변수에 속성이나 값을 넣고 다시 DOM으로 주입시키는 경우가 많습니다.
+        이러할 경우 DOM을 참조하는 형태는 DOM의 직접적인 정보와 DOM트리와 맵 혹은 배열 두군데에서 참조하게 됩니다.
+        이 요소를 완전히 삭제(제거)를 원하는 경우에는 아래와 같은 방법이 적용됩니다.
+        */
+        one.addEventListener("click",function(){
+            document.body.removeChild(two);
+            console.log(two);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body></body>
+    <script>
+        /*
+            문제 2 : 소수 구하기
+            소수란 1보다 큰 자연수중 1과 자신만을 약수로 가지는 수를 말한다. 
+            주어진 함수 내부를 구현하고 결과에 따라 true 또는 false를 리턴한다.
+        */
+        function isPrime(num) {
+            for (let i = 2; num > i; i++) {
+                if (num % i === 0) { 
+                    return false;
+                }
+            }
+            return num > 1;
+        }
+        console.log(isPrime(31)) //true
+        console.log(isPrime(10)) //false
+        // 1과 자기 자신만의 수만 가지는것이 소수라고 하였다.
+        // 그러면 소수를 제외하는 다른 수는 false를
+        // 소수는 true로 설정하면 된다
+        // 즉 계속 증가하는값(for문)을 사용하여 0으로 딱 떨어진다면 소수가 아님
+        // 딱 떨어지지않으면 소수
+    </script>
+</html>
